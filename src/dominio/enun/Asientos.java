@@ -11,4 +11,14 @@ public enum Asientos {
     public int getNumeroasientos() {
         return numeroasientos;
     }
+    public int Porcentaje(){
+        switch (numeroasientos){
+            case 5:
+                return 1;
+            default:
+                return 0;
+
+        }
+    }
+
 }

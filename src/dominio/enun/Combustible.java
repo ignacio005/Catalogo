@@ -15,4 +15,20 @@ public enum Combustible {
     public String getCombustible(){
         return combustible;
     }
+
+    public int Porcentaje(){
+
+        switch (combustible){
+            case "Gasolina":
+                return 1;
+            case "Electrico":
+                return 21;
+            case "Hibrido":
+                return 11;
+            case "Diesel":
+                return 2;
+            default:
+                return 0;
+        }
+    }
 }

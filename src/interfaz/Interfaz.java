@@ -1,38 +1,65 @@
 package interfaz;
 
 import dominio.Catalogo;
-import dominio.Coche;
-import java.math.BigDecimal;
-import java.util.ArrayList;
+
 import java.util.Scanner;
 
 public class Interfaz {
+    private static Scanner sc = new Scanner(System.in);
 
-    public static void mostrarInterfaz(){
+    public static boolean procesarPeticion(String peticion, Catalogo c) {
+        if (peticion == null) {
+            System.out.println("Consulta ayuda.");
+            return true;
+        }
+        String[] p = peticion.split(": ");
+        if (p.length > 2) {
+            System.out.println("Petición erronea.");
+            return true;
+        } else if (p.length == 1) {
+            if (p[0].equals("Ayuda")) {
+                System.out.println("Introduzca una de las siguientes peticiones: "
+                        + "\n Anadir coche:(escribir marca, modelo y precio base del coche) "
+                        + "\n Eliminar coche: (escribe marca, modelo y precio base del coche) "
+                        + "\n Mostrar catálogo: (muestra contenido del catálogo) "
+                        + "\n Calcular el precio final de un coche: (elección de componentes que desea en el coche y mostrar precio final) "
+                        + "\n Ayuda: (vuelve a mostrar las peticiones) "
+                        + "\n Salir: (escribe salir para terminar) ");
 
-        Catalogo catalogo = new Catalogo();
+            } else if (p[0].equals("Mostrar catálogo")) {
+                System.out.println(c.getCoches().toString());
+            } else if (p[0].equals("Salir")) {
+                return false;
+            } else {
 
-        Coche coche1 = new Coche("BMW", "X4",new BigDecimal(60400));
-        Coche coche2 = new Coche("BMW", "X5",new BigDecimal(86800));
-        Coche coche3 = new Coche("BMW", "X6",new BigDecimal(96800));
-        Coche coche4 = new Coche("Ford", "Kuga",new BigDecimal(38250.6));
-        Coche coche5 = new Coche("Ford", "Explorer",new BigDecimal(91638.1));
-        Coche coche6 = new Coche("Ford", "Mustang mach-e gt",new BigDecimal(55012));
-        Coche coche7 = new Coche("Toyota", "Rav4",new BigDecimal(40100));
-        Coche coche8 = new Coche("Toyota", "Highlander",new BigDecimal(64500));
-        Coche coche9 = new Coche("Toyota", "Land cruiser",new BigDecimal(54300));
+                System.out.println("Petición erronea. Pida ayuda.");
+                return true;
 
-        catalogo.annadirCoche(coche1);
-        catalogo.annadirCoche(coche2);
-        catalogo.annadirCoche(coche3);
-        catalogo.annadirCoche(coche5);
-        catalogo.annadirCoche(coche6);
-        catalogo.annadirCoche(coche7);
-        catalogo.annadirCoche(coche8);
-        catalogo.annadirCoche(coche9);
+            }
+            if (p[0].equals("Anadir coche")) {
 
+                //annadirCoche(p[1], c);
+            }
 
+            if (p[0].equals("Eliminar coche")) {
 
+                //eliminarCoche(p[1], c);
+            }
 
+            if (p[0].equals("Calcular el precio final de un coche")) {
+
+                //sc.PrecioTotal();
+            }
+            return true;
+        }
+        return true;
+    }
+
+    public static String leerPeticion() {
+
+        System.out.print("?>");
+        String cadena = sc.nextLine();
+        return cadena;
     }
 }
+
