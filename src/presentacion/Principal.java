@@ -20,13 +20,7 @@ public class Principal {
         catalogo.annadirCoche(coche2);
         catalogo.annadirCoche(coche3);
 
-        System.out.println("Introduzca una de las siguientes peticiones: "
-                + "\n Anadir coche:(escribir marca, modelo y precio base del coche) "
-                + "\n Eliminar coche: (escribe marca, modelo y precio base del coche) "
-                + "\n Mostrar catálogo: (muestra contenido del catálogo) "
-                + "\n Calcular el precio final de un coche: (elección de componentes que desea en el coche y mostrar precio final) "
-                + "\n Ayuda: (vuelve a mostrar las peticiones) "
-                + "\n Salir: (escribe salir para terminar) ");
+        Interfaz.MostrarInstrucciones();
 
         String p;
         Boolean seguir;

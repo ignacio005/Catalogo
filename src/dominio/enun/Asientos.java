@@ -1,24 +1,28 @@
 package dominio.enun;
 
 public enum Asientos {
-    ASIENTOS (5);
-    private int numeroasientos;
 
-    Asientos(int numeroasientos){
-        this.numeroasientos=numeroasientos;
+    CUERO("Cuero"),
+    TELA("Tela");
+
+    private String materialasientos;
+
+    Asientos(String materialasientos){
+        this.materialasientos=materialasientos;
     }
 
-    public int getNumeroasientos() {
-        return numeroasientos;
+    public String getMaterialasientos(){
+        return materialasientos;
     }
+
     public int Porcentaje(){
-        switch (numeroasientos){
-            case 5:
+        switch (materialasientos){
+            case "Cuero":
+                return 2;
+            case "Tela":
                 return 1;
             default:
                 return 0;
-
         }
     }
-
 }

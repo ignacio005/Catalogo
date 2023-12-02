@@ -20,6 +20,12 @@ public class Coche {
         this.preciobase=preciobase;
     }
 
+    @Override
+    public String toString() {
+        String str = this.nombremarca + " " + this.modelo + " y su precio base es de " + this.preciobase + " €.\n";
+        return str;
+    }
+
     public BigDecimal PrecioTotal(){
 
         BigDecimal preciorueda = preciobase.multiply(new BigDecimal((rueda==null) ? 1 : rueda.Porcentaje()/100.0));
