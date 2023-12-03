@@ -26,7 +26,7 @@ public class Coche {
         return str;
     }
 
-    public BigDecimal PrecioTotal(){
+    public BigDecimal PrecioTotal(int i){
 
         BigDecimal preciorueda = preciobase.multiply(new BigDecimal((rueda==null) ? 1 : rueda.Porcentaje()/100.0));
         BigDecimal preciocombustible = preciobase.multiply(new BigDecimal((combustible==null) ? 0 : combustible.Porcentaje()/100.0));

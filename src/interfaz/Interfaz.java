@@ -29,8 +29,10 @@ public class Interfaz {
             annadirCoche(c);
         }else if (peticion.equals("Eliminar coche")) {
             eliminarCoche(c);
-        }else if (peticion.equals("Calcular el precio final de un coche")) {
-            //sc.PrecioTotal();
+        }else if (peticion.equals("Calcular precio")) {
+            //calcularPrecio(c);
+        }else if (peticion.equals("Modificar coche")) {
+            modificarCoche(c);
         }else {
 
             System.out.println("Petición erronea. Pida ayuda.");
@@ -64,9 +66,9 @@ public class Interfaz {
         modelo=PedirporConsola("Introduzca el modelo:");
         preciobase=new BigDecimal(PedirporConsola("Introduzca el preco base:"));
         tamano= Integer.parseInt(PedirporConsola("Introduzca el tamaño de la rueda: " + Rueda.GRANDE.getTamano() + " o " + Rueda.PEQUENO.getTamano()));
-        combustible=PedirporConsola("Introduzca el combustible:");
-        color=PedirporConsola("Introduzca el color:");
-        materialasientos=PedirporConsola("Introduzca el tipo de material del asiento:");
+        combustible=PedirporConsola("Introduzca el combustible: " + Combustible.GASOLINA.getCombustible() + ", " + Combustible.DIESEL.getCombustible() + ", " + Combustible.HIBRIDO.getCombustible() + " o " + Combustible.ELECTRICO.getCombustible());
+        color=PedirporConsola("Introduzca el color: " + Color.BLANCO.getColor() + ", " + Color.NEGRO.getColor() + ", " + Color.ROJO.getColor() + " o " + Color.AZUL.getColor());
+        materialasientos=PedirporConsola("Introduzca el tipo de material del asiento: " + Asientos.CUERO.getMaterialasientos() + " o " + Asientos.TELA.getMaterialasientos());
 
         if(tamano==Rueda.GRANDE.getTamano()){
             rueda=Rueda.GRANDE;
@@ -124,6 +126,86 @@ public class Interfaz {
         posicion = PedirporConsola("Introduzca posición a eliminar:");
         int i = Integer.parseInt(posicion);
         c.eliminarCoche(i);
+        System.out.println("Se eliminó exitosamente el coche.");
+    }
+
+    public static void modificarCoche(Catalogo c) {
+
+        String posicion;
+        System.out.println(c.toString());
+        posicion = PedirporConsola("Introduzca posición a modificar:");
+        int i = Integer.parseInt(posicion);
+        c.eliminarCoche(i);
+
+        String nombremarca;
+        String modelo;
+        BigDecimal preciobase;
+        int tamano;
+        Rueda rueda;
+        String combustible;
+        Combustible combustible1;
+        String color;
+        Color color1;
+        String materialasientos;
+        Asientos asientos;
+
+        nombremarca=PedirporConsola("Introduzca la marca:");
+        modelo=PedirporConsola("Introduzca el modelo:");
+        preciobase=new BigDecimal(PedirporConsola("Introduzca el preco base:"));
+        tamano= Integer.parseInt(PedirporConsola("Introduzca el tamaño de la rueda: " + Rueda.GRANDE.getTamano() + " o " + Rueda.PEQUENO.getTamano()));
+        combustible=PedirporConsola("Introduzca el combustible: " + Combustible.GASOLINA.getCombustible() + ", " + Combustible.DIESEL.getCombustible() + ", " + Combustible.HIBRIDO.getCombustible() + " o " + Combustible.ELECTRICO.getCombustible());
+        color=PedirporConsola("Introduzca el color: " + Color.BLANCO.getColor() + ", " + Color.NEGRO.getColor() + ", " + Color.ROJO.getColor() + " o " + Color.AZUL.getColor());
+        materialasientos=PedirporConsola("Introduzca el tipo de material del asiento: " + Asientos.CUERO.getMaterialasientos() + " o " + Asientos.TELA.getMaterialasientos());
+
+        if(tamano==Rueda.GRANDE.getTamano()){
+            rueda=Rueda.GRANDE;
+        }else if (tamano==Rueda.PEQUENO.getTamano()){
+            rueda=Rueda.PEQUENO;
+        }else {
+            System.out.println("Tamaño de rueda no reconocido.");
+            return ;
+        }
+
+        if (combustible.equals(Combustible.GASOLINA.getCombustible())){
+            combustible1=Combustible.GASOLINA;
+        } else if (combustible.equals(Combustible.DIESEL.getCombustible())) {
+            combustible1=Combustible.DIESEL;
+        } else if (combustible.equals(Combustible.HIBRIDO.getCombustible())) {
+            combustible1=Combustible.HIBRIDO;
+        } else if (combustible.equals(Combustible.ELECTRICO.getCombustible())) {
+            combustible1=Combustible.ELECTRICO;
+        }else {
+            System.out.println("Combustible no reconocido.");
+            return;
+        }
+
+        if (color.equals(Color.BLANCO.getColor())){
+            color1=Color.BLANCO;
+        } else if (color.equals(Color.NEGRO.getColor())) {
+            color1=Color.NEGRO;
+        } else if (color.equals(Color.ROJO.getColor())) {
+            color1=Color.ROJO;
+        } else if (color.equals(Color.AZUL.getColor())) {
+            color1=Color.ROJO;
+        } else {
+            System.out.println("Color no reconocido.");
+            return;
+        }
+
+        if (materialasientos.equals(Asientos.CUERO.getMaterialasientos())){
+            asientos=Asientos.CUERO;
+        } else if (materialasientos.equals(Asientos.TELA.getMaterialasientos())) {
+            asientos=Asientos.TELA;
+        }else {
+            System.out.println("Material de asiento no reconocido.");
+            return;
+        }
+
+        Coche cocheannadido = new Coche(nombremarca, modelo, preciobase);
+        c.annadirCoche(cocheannadido);
+
+        System.out.println("Se modificó exitosamente el coche.");
+
     }
 
     public static void MostrarInstrucciones() {
@@ -132,6 +214,7 @@ public class Interfaz {
                 + "\n Eliminar coche"
                 + "\n Mostrar catálogo"
                 + "\n Calcular precio"
+                + "\n Modificar coche"
                 + "\n Ayuda"
                 + "\n Salir");
     }
@@ -139,6 +222,14 @@ public class Interfaz {
     public static String PedirporConsola(String solicitud) {
         System.out.println(solicitud);
         return leerPeticion();
+    }
+
+    public static void calcularPrecio(Catalogo c, Coche coche){
+        String posicion;
+        System.out.println(c.toString());
+        posicion = PedirporConsola("Introduzca posición a calcular:");
+        int i = Integer.parseInt(posicion);
+        System.out.println("El precio total del coche es " + coche.PrecioTotal(i) + " €.");
     }
 
 
