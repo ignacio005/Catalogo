@@ -9,8 +9,8 @@ public class Catalogo {
         this.coches.add(coche);
     }
 
-    public void eliminarCoche(Coche coche){
-        this.coches.remove(coche);
+    public void eliminarCoche(int i){
+        this.coches.remove(i);
     }
 
     public Catalogo(){

@@ -28,7 +28,7 @@ public class Interfaz {
         }else if (peticion.equals("Añadir coche")) {
             annadirCoche(c);
         }else if (peticion.equals("Eliminar coche")) {
-            //eliminarCoche(p[1], c);
+            eliminarCoche(c);
         }else if (peticion.equals("Calcular el precio final de un coche")) {
             //sc.PrecioTotal();
         }else {
@@ -118,11 +118,12 @@ public class Interfaz {
         System.out.println("Se añadió exitosamente el coche.");
     }
 
-    public static void eliminarCoche(String peticion, Catalogo c, Coche coche) {
+    public static void eliminarCoche(Catalogo c) {
         String posicion;
         System.out.println(c.toString());
-        Integer.parseInt(posicion)=PedirporConsola("Introduzca posición a eliminar:");
-        c.eliminarCoche(coche);
+        posicion = PedirporConsola("Introduzca posición a eliminar:");
+        int i = Integer.parseInt(posicion);
+        c.eliminarCoche(i);
     }
 
     public static void MostrarInstrucciones() {
