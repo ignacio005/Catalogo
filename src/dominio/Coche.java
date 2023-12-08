@@ -3,6 +3,7 @@ package dominio;
 import dominio.enun.*;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 
 public class Coche {
     private String nombremarca;
@@ -17,7 +18,7 @@ public class Coche {
     public Coche(String nombremarca, String modelo, BigDecimal preciobase){
         this.nombremarca=nombremarca;
         this.modelo=modelo;
-        this.preciobase=preciobase;
+        this.preciobase=preciobase.setScale(2, RoundingMode.HALF_UP);
     }
 
     @Override
@@ -38,4 +39,35 @@ public class Coche {
         return preciototal;
     }
 
+    public void setnuevamarca(String nuevamarca){
+        this.nombremarca=nuevamarca;
+    }
+
+    public void setnuevomodelo(String nuevomodelo){
+        this.modelo=nuevomodelo;
+    }
+
+    public void setnuevopreciobase(BigDecimal nuevopreciobase){
+        this.preciobase=nuevopreciobase;
+    }
+
+    public void setnuevaRueda(Rueda rueda){
+        this.rueda=rueda;
+    }
+
+    public void setnuevoCombustible(Combustible nuevocombustible){
+        this.combustible=nuevocombustible;
+    }
+
+    public void setnuevoColor(Color nuevocolor){
+        this.color=nuevocolor;
+    }
+
+    public void setnuevosAsientos(Asientos nuevosasientos){
+        this.asientos=nuevosasientos;
+    }
+
+    public void setnuevoTipoDeCambio(Tipodecambio nuevocambio){
+        this.tipodecambio=nuevocambio;
+    }
 }

@@ -1,9 +1,8 @@
-package presentacion;
+package aplicacion;
 
 import dominio.Catalogo;
 import dominio.Coche;
-import dominio.enun.Rueda;
-import interfaz.Interfaz;
+import presentacion.Interfaz;
 
 import java.math.BigDecimal;
 
