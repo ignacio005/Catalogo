@@ -9,9 +9,13 @@ import java.math.BigDecimal;
 
 public class Principal {
     public static void main(String[] args) {
-
+        /**
+         * Creo el catálogo.
+         */
         Catalogo catalogo = new Catalogo();
-
+        /**
+         * Creo tres coches.
+         */
         Coche coche1 = new Coche("BMW", "X5", new BigDecimal(86800));
         coche1.setnuevaRueda(Rueda.GRANDE);
         coche1.setnuevoCombustible(Combustible.HIBRIDO);

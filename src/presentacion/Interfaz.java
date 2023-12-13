@@ -8,9 +8,18 @@ import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.Scanner;
 
+/**
+ * La clase interfaz se encarga de interactuar con el usuario por consola.
+ */
 public class Interfaz {
     private static Scanner sc = new Scanner(System.in);
 
+    /**
+     * Este método procesa la petición introducida por consola, llamando a un método u otro de la clase interfaz en función de la petición introducida.
+     * @param peticion contiene lo introducido por consola por el usuario.
+     * @param c es el catálogo.
+     * @return devuelve un boolean true para que continue el programa.
+     */
     public static boolean procesarPeticion(String peticion, Catalogo c) {
         if (peticion == null || peticion.isEmpty()) {
             System.out.println("Consulta ayuda.");
@@ -40,12 +49,20 @@ public class Interfaz {
         return true;
     }
 
+    /**
+     * Este método imprime por pantalla un String y guarda lo introducido por consola en el String cadena.
+     * @return devuelve el String cadena.
+     */
     public static String leerPeticion() {
         System.out.print("?> ");
         String cadena = sc.nextLine();
         return cadena;
     }
 
+    /**
+     * Este método añade un coche con la marca, modelo, precio base, rueda, combustible, color, asiento y tipo de cambio, introducidas por el usuario.
+     * @param c es el catálogo.
+     */
     public static void annadirCoche(Catalogo c) {
         String nombremarca;
         String modelo;
@@ -125,6 +142,10 @@ public class Interfaz {
         System.out.println("Se añadió exitosamente el coche.");
     }
 
+    /**
+     * Este método elimina el coche, indicado por consola la posición del catalogo en la que se encuentra.
+     * @param c es el catálogo.
+     */
     public static void eliminarCoche(Catalogo c) {
         String posicion;
         System.out.println(c.toString());
@@ -134,6 +155,10 @@ public class Interfaz {
         System.out.println("Se eliminó exitosamente el coche.");
     }
 
+    /**
+     * Este método muestra por pantalla el catálogo, para que el usuario introduzca por consola la posición del coche a modificar.
+     * @param c es el catálogo.
+     */
     public static void modificarCoche(Catalogo c) {
 
         String posicion;
@@ -149,6 +174,11 @@ public class Interfaz {
 
     }
 
+    /**
+     * Este método solicita al usuario introducir el aspecto del coche a modificar e introducir su nuevo valor.
+     * @param coche es el coche del catálogo a modificar.
+     * @return devuelve un boolean true para que continue el programa.
+     */
     public static boolean modificar(Coche coche){
         System.out.println("Indicar propiedad a modificar: "
             + "\n Marca"
@@ -228,6 +258,9 @@ public class Interfaz {
         return true;
     }
 
+    /**
+     * Este método muestra las instrucciones al usuario por pantalla.
+     */
     public static void MostrarInstrucciones() {
         System.out.println("Introduzca una de las siguientes peticiones: "
                 + "\n Añadir coche"
@@ -240,15 +273,19 @@ public class Interfaz {
     }
 
     /**
-     *
-     * @param solicitud
-     * @return
+     * Este método muestra la solicitud por consola.
+     * @param solicitud es lo que va a mostrar por pantalla.
+     * @return devuelve el método leerPeticion.
      */
     public static String PedirporConsola(String solicitud) {
         System.out.println(solicitud);
         return leerPeticion();
     }
 
+    /**
+     * Este método muestra el catalogo y pide por pantalla al usuario la posición a calcular, para calcular el precio final de coche.
+     * @param c es el catálogo.
+     */
     public static void calcularPrecio(Catalogo c){
         String posicion;
         System.out.println(c.toString());

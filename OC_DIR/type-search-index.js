@@ -1,0 +1,1 @@
+typeSearchIndex = [{"l":"All Classes","url":"allclasses-index.html"},{"p":"dominio.enun","l":"Asientos"},{"p":"dominio","l":"Catalogo"},{"p":"dominio","l":"Coche"},{"p":"dominio.enun","l":"Color"},{"p":"dominio.enun","l":"Combustible"},{"p":"presentacion","l":"Interfaz"},{"p":"aplicacion","l":"Principal"},{"p":"dominio.enun","l":"Rueda"},{"p":"dominio.enun","l":"Tipodecambio"}]

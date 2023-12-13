@@ -5,6 +5,9 @@ import dominio.enun.*;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 
+/**
+ * La clase coche se encarga de gestionar los atributos que definen un coche.
+ */
 public class Coche {
     private String nombremarca;
     private String modelo;
@@ -38,9 +41,9 @@ public class Coche {
     }
 
     /**
-     *Este método calcula el precio total de un coche de la lista coches, indicándole previamente la posición en la que se encuentra dicho coche.
+     * Este método calcula el precio total de un coche de la lista coches, indicándole previamente la posición en la que se encuentra dicho coche.
      * @param i es la posición a calcular el precio total de la lista coches y tiene que ser mayor o igual a 0.
-     * @return
+     * @return devuelve un int con el valor de preciototal.
      */
     public BigDecimal PrecioTotal(int i){
 
@@ -56,7 +59,7 @@ public class Coche {
 
     /**
      * Permite almacenar en la variable nombremarca el valor de nuevamarca.
-     * @param nuevamarca contiene el valor de la nueva marca introducida por el usuario.
+     * @param nuevamarca contiene el valor de la nueva marca, introducido por el usuario.
      */
     public void setnuevamarca(String nuevamarca){
         this.nombremarca=nuevamarca;
@@ -64,7 +67,7 @@ public class Coche {
 
     /**
      * Permite almacenar en la variable modelo el valor de nuevomodelo.
-     * @param nuevomodelo contiene el valor del nuevo modelo introducido por el usuario.
+     * @param nuevomodelo contiene el valor del nuevo modelo, introducido por el usuario.
      */
     public void setnuevomodelo(String nuevomodelo){
         this.modelo=nuevomodelo;
@@ -72,28 +75,48 @@ public class Coche {
 
     /**
      * Permite almacenar en la variable preciobase el valor de nuevopreciobase.
-     * @param nuevopreciobase contiene el valor del nuevo preciobase introducido por el usuario.
+     * @param nuevopreciobase contiene el valor del nuevo preciobase, introducido por el usuario.
      */
     public void setnuevopreciobase(BigDecimal nuevopreciobase){
         this.preciobase=nuevopreciobase;
     }
 
+    /**
+     * Permite almacenar en la variable rueda el valor de rueda.
+     * @param rueda contiene el valor de la nueva rueda, introducido por el usuario.
+     */
     public void setnuevaRueda(Rueda rueda){
         this.rueda=rueda;
     }
 
+    /**
+     * Permite almacenar en la variable combustible el valor de nuevocombustible.
+     * @param nuevocombustible contiene el valor del nuevo combustible, introducido por el usuario.
+     */
     public void setnuevoCombustible(Combustible nuevocombustible){
         this.combustible=nuevocombustible;
     }
 
+    /**
+     * Permite almacenar en la variable color el valor de nuevocolor.
+     * @param nuevocolor contiene el valor del nuevo color, introducido por el usuario.
+     */
     public void setnuevoColor(Color nuevocolor){
         this.color=nuevocolor;
     }
 
+    /**
+     * Permite almacenar en la variable asientos el valor de nuevosasientos.
+     * @param nuevosasientos contiene el valor de los nuevos asientos, introducido por el usuario.
+     */
     public void setnuevosAsientos(Asientos nuevosasientos){
         this.asientos=nuevosasientos;
     }
 
+    /**
+     * Permite almacenar en la variable tipodecambio el valor de nuevocambio.
+     * @param nuevocambio contiene el valor del nuevo tipo de cambio, introducido por el usuario.
+     */
     public void setnuevoTipoDeCambio(Tipodecambio nuevocambio){
         this.tipodecambio=nuevocambio;
     }

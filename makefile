@@ -1,17 +1,31 @@
-JAVA=src/aplicacion/Principal.java src/dominio/Catalogo.java src/dominio/Coche.java src/dominio/enun/*.java src/presentacion/Interfaz.java
-CLASS=aplicacion/Principal.class dominio/Catalogo.class dominio/Coche.class dominio/enun/*.class presentacion/Interfaz.class
+P=Principal
+MAIN_CLASS=aplicacion.$(P)
+SRC_DIR=./src
+OUT_DIR=bin
+LIB_DIR=./lib
+DOC_DIR=html
+JAR_FILE = $(P).jar
+compilar:limpiar
+	mkdir $(OUT_DIR)
+	find $(SRC_DIR) -name *.java | xargs javac -cp $(OUT_DIR):$(LIB_DIR) -d $(OUT_DIR)
 
-# Por defecto hacemos el jar
-default: jar
+jar:compilar
+	@echo "Manifest-Version: 1.0" > manifest.txt
+	@echo "Main-Class:" $(MAIN_CLASS) >> manifest.txt
+	@echo "Class-Path: . ">> manifest.txt
+	@echo "" >> manifest.txt
+	jar cvfm $(JAR_FILE) manifest.txt  -C  $(OUT_DIR) .
+ejecutar:compilar
+	java -cp $(OUT_DIR) $(MAIN_CLASS)
+limpiar:
+	rm -rf $(OUT_DIR)
+	rm -rf $(DOC_DIR)
+	rm -f $(JAR_FILE)
+javadoc:compilar
+	find . -type f -name "*.java" | xargs javadoc -d $DOC_DIR	 -encoding utf-8 -charset utf-8
+debug: compilar
 
-# Con all hacemos el jar y borramos los class
-all: jar clean
-
-jar: class
-	jar cvfm catalogo.jar Manifest.txt $(CLASS)
-
-class:$(JAVA)
-	javac -d ./ $(JAVA)
-
-clean:
-	rm $(CLASS)
+	find $(SRC_DIR) -name *.java | xargs javac -g -cp $(OUT_DIR):$(LIB_DIR) -d $(OUT_DIR)
+	cd bin; jdb -sourcepath ../src
+runjar: jar
+	java -jar $(JAR_FILE)
