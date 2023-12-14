@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>C:/Users/jta8_/Documents/Catalogo/src</OriginalElement>
+  <nodes>
+    <node x="-79.68808644422157" y="770.1341706456815">dominio.enun.Color</node>
+    <node x="175.53673012610815" y="433.78474170749587">dominio.enun.Combustible</node>
+    <node x="391.5736574165855" y="-13.559263155137273">dominio.enun.Asientos</node>
+    <node x="475.6872668790264" y="836.8966592951701">presentacion.Interfaz</node>
+    <node x="461.1570274963773" y="279.7812490706383">dominio.Coche</node>
+    <node x="162.32000827309633" y="837.2339661493357">dominio.Catalogo</node>
+    <node x="338.01354331516995" y="1202.3101799913625">aplicacion.Principal</node>
+    <node x="847.5402075359723" y="303.8936892554603">dominio.enun.Tipodecambio</node>
+    <node x="855.1908492959276" y="682.8123060073096">dominio.enun.Rueda</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="dominio.Coche" target="dominio.enun.Color" relationship="TO_ONE">
+      <point x="-163.0" y="-111.9965073631424" />
+      <point x="10.811913555778432" y="416.28474170749587" />
+      <point x="0.0" y="-140.5" />
+    </edge>
+    <edge source="dominio.Catalogo" target="dominio.Coche" relationship="TO_MANY">
+      <point x="0.0" y="-92.5" />
+      <point x="285.32000827309633" y="732.2847417074959" />
+      <point x="-163.0" y="204.00349263685757" />
+    </edge>
+    <edge source="aplicacion.Principal" target="dominio.Catalogo" relationship="CREATE">
+      <point x="-21.19353504207362" y="-44.0" />
+      <point x="115.5" y="92.5" />
+    </edge>
+    <edge source="dominio.Coche" target="dominio.enun.Tipodecambio" relationship="TO_ONE">
+      <point x="163.0" y="-107.88755981517802" />
+      <point x="-117.5" y="0.0" />
+    </edge>
+    <edge source="presentacion.Interfaz" target="dominio.Coche" relationship="CREATE">
+      <point x="-159.5002668790264" y="3.40704829909555E-4" />
+      <point x="454.0" y="989.397" />
+      <point x="454.0" y="819.3969999999999" />
+      <point x="624.157" y="819.3969999999999" />
+      <point x="-2.7496377242641756E-5" y="248.4997509293617" />
+    </edge>
+    <edge source="aplicacion.Principal" target="dominio.Coche" relationship="CREATE">
+      <point x="3.8064566848300387" y="-44.00017999136253" />
+      <point x="425.82" y="989.5" />
+      <point x="454.0" y="989.5" />
+      <point x="454.0" y="819.3969999999999" />
+      <point x="624.157" y="819.3969999999999" />
+      <point x="-2.7496377242641756E-5" y="248.4997509293617" />
+    </edge>
+    <edge source="dominio.Coche" target="dominio.enun.Combustible" relationship="TO_ONE">
+      <point x="-163.0" y="46.0034926368576" />
+      <point x="112.50000000000003" y="0.0" />
+    </edge>
+    <edge source="dominio.Coche" target="dominio.enun.Rueda" relationship="TO_ONE">
+      <point x="163.0" y="241.0" />
+      <point x="-92.5" y="-30.031056936671348" />
+    </edge>
+    <edge source="dominio.Coche" target="dominio.enun.Asientos" relationship="TO_ONE">
+      <point x="-121.58337007979179" y="-248.5" />
+      <point x="0.0" y="116.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic" zoom="1.2474204009433965" showDependencies="true" x="386.96194239527324" y="1062.36" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Constructors</Category>
+    <Category>Fields</Category>
+    <Category>Methods</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
